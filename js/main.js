@@ -31,10 +31,40 @@ async function fetchRepos(values) {
     
     removePreviousRepos();
     if (values) {
-        var obj = await fetch('https://api.github.com/search/repositories?q=topic:' + values);
-        var jsonData = await obj.text();
-        var data = await JSON.parse(jsonData);
-        showData(data);
+        if(window.fetch){
+            var response = await fetch('https://api.github.com/search/repositories?q=topic:' + values);
+            if(response.ok){
+                var jsonData = await response.text();
+                var data = await JSON.parse(jsonData);
+                showData(data);
+            }
+        }else{
+            var response = new Promise(function(resolve,reject){
+                var xhr = null;
+                if(window.XMLHttpRequest){
+                    xhr = new XMLHttpRequest();
+                }else{
+                    xhr = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+                xhr.open('GET','https://api.github.com/search/repositories?q=topic:' + values,true);
+
+                xhr.onload = function(){
+                    if(this.status == 200){
+                        if(this.responseText){
+                            resolve(this.responseText);
+                        }else{
+                            resolve(this.responseXML);
+                        }
+                    }
+                }
+                xhr.send();
+            });
+
+            response.then(function(jsonData){
+                var data = await JSON.parse(jsonData);
+                showData(data);
+            });
+        }
     }
 }
 
