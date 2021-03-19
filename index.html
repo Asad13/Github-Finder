@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Code for favicon to add here-->
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" type="image/png" href="/img/favicon.png"> -->
+
+    <!-- If required Google Fonts to be added here -->
+    <!-- Google Fonts -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet"> -->
+
+    <!-- My Styles Here -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Title Here -->
+    <title>Github Finder</title>
+
+    <!-- If icons from Fontawesome is required add the later code -->
+    <!-- FontAwesome Icon Library-->
+    <!-- <script src="https://kit.fontawesome.com/17bec82fcd.js" crossorigin="anonymous"></script> -->
+</head>
+<body>
+    <div class="container-fluid" id="header-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 id="header">Github Finder</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="search-bar-conatiner">
+            <div class="col-12">
+               <h2><strong>Search Github Repositories</strong></h2>
+               <p id="hint"><strong>Enter a topic to search repositories on a topic</strong></p>
+               <form id="repoSearch" name="repoSearch">
+                    <input type="text" name="repoTopic" id="repoTopic" placeholder="Topic to search repositories">
+                    <input type="submit" id="search" name="search"  value="Search" >
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row" id="output-container">
+            <div class="col-12" id="heading">
+                <div class="col-2 headings"><p>Name</p></div>
+                <div class="col-3 headings"><p>Description</p></div>
+                <div class="col-2 headings"><p>Owner</p></div>
+                <div class="col-1 headings"><p>Language</p></div>
+                <div class="col-1 headings"><p>Forks</p></div>
+                <div class="col-1 headings"><p>Created At</p></div>
+                <div class="col-1 headings"><p>Last Updated</p></div>
+                <div class="col-1 headings"><p>Go To</p></div>
+            </div>
+            <div class="col-12" id="empty">
+                <p>Information about repositories will be shown here.</p>
+            </div>
+        </div>
+    </div>
+    <script src="/js/ui.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
